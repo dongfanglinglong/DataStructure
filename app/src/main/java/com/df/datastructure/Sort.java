@@ -27,7 +27,7 @@ import java.util.Arrays;
  * 桶式排序
  * 基数排序
  * </pre>
- * <p/>
+ * <p>
  * Created by dongfang on 2016/3/10.
  */
 public class Sort {
@@ -46,9 +46,9 @@ public class Sort {
      * 它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。
      * 走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。
      * 这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。
-     * <p/>
+     * <p>
      * 步骤：
-     * <p/>
+     * <p>
      * 1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。<BR/>
      * 2.对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。<BR/>
      * 3.针对所有的元素重复以上的步骤，除了最后一个。<BR/>
@@ -66,10 +66,14 @@ public class Sort {
                     temp = array[j];
                     array[j] = array[j + 1];
                     array[j + 1] = temp;
-                    System.out.println("[" + num++ + "][" + i + "][" + j + "] : " + Arrays.toString(array));
+
+                    num++;
+                    // System.out.println("[" + num++ + "][" + i + "][" + j + "] : " + Arrays.toString(array));
                 }
             }
         }
+
+        System.out.println("dubble num [" + num + "]");
     }
 
     /**
@@ -89,10 +93,13 @@ public class Sort {
                     temp = array[j];
                     array[j] = array[i];
                     array[i] = temp;
-                    System.out.println("[" + num++ + "][" + i + "][" + j + "] : " + Arrays.toString(array));
+                    num++;
+                    // System.out.println("[" + num++ + "][" + i + "][" + j + "] : " + Arrays.toString(array));
                 }
             }
         }
+        System.out.println("dubbleAlpha num [" + num + "]");
+
     }
 
     /**
@@ -113,7 +120,9 @@ public class Sort {
             for (int j = i + 1; j < length; j++) {
                 if (array[min] > array[j]) {
                     min = j;
-                    System.out.println("[" + num++ + "][" + i + "][" + j + "] : " + Arrays.toString(array));
+
+                    num++;
+                    // System.out.println("[" + num++ + "][" + i + "][" + j + "] : " + Arrays.toString(array));
                 }
             }
 
@@ -123,6 +132,9 @@ public class Sort {
                 array[min] = temp;
             }
         }
+
+        System.out.println("select num [" + num + "]");
+
     }
 
     /**
@@ -130,9 +142,9 @@ public class Sort {
      * 它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。<BR/>
      * 插入排序在实现上，通常采用in-place排序（即只需用到O(1)的额外空间的排序），
      * 因而在从后向前扫描过程中，需要反复把已排序元素逐步向后挪位，为最新元素提供插入空间。
-     * <p/>
+     * <p>
      * 步骤：
-     * <p/>
+     * <p>
      * 1. 从第一个元素开始，该元素可以认为已经被排序<BR/>
      * 2. 取出下一个元素，在已经排序的元素序列中从后向前扫描<BR/>
      * 3. 如果该元素（已排序）大于新元素，将该元素移到下一位置<BR/>
@@ -152,19 +164,22 @@ public class Sort {
                 temp = array[j];
                 array[j] = array[j - 1];
                 array[j - 1] = temp;
-                System.out.println("[" + num++ + "][" + i + "][" + j + "] : " + Arrays.toString(array));
+                num++;
+                // System.out.println("[" + num++ + "][" + i + "][" + j + "] : " + Arrays.toString(array));
             }
         }
+        System.out.println("insertion num [" + num + "]");
+
     }
 
 
     /**
      * <EM>希尔排序</EM>，也称递减增量排序算法，是插入排序的一种高速而稳定的改进版本。
-     * <p/>
+     * <p>
      * 希尔排序是基于插入排序的以下两点性质而提出改进方法的：<BR/>
      * 1、插入排序在对几乎已经排好序的数据操作时， 效率高， 即可以达到线性排序的效率<BR/>
      * 2、但插入排序一般来说是低效的， 因为插入排序每次只能将数据移动一位>
-     * <p/>
+     * <p>
      * 由于shell排序的时间复杂度和步长有关，目前还没法证明哪个步长效率最好，此处用Knuth提出的方法；<BR/>
      *
      * @param array
@@ -179,43 +194,36 @@ public class Sort {
             h = h * 3 + 1;
         }
 
-
         while (h > 0) {
-            System.out.println("h = " + h);
-
-            for (int i = 0; i < length; i++) {
-                for (int j = i; (j + h) < length; j += h) {
-                    if (array[j] > array[j + h]) {
-                        temp = array[j];
-                        array[j] = array[j + h];
-                        array[j + h] = temp;
-                        System.out.println("[" + num++ + "][" + h + "][" + i + "][" + j + "] : " + Arrays.toString(array));
-                    }
+            // System.out.println("h = " + h);
+            for (int i = h; i < length; i += h) {
+                for (int j = i - h; j > -1 && array[j] > array[j + h]; j--) {
+                    temp = array[j + h];
+                    array[j + h] = array[j];
+                    array[j] = temp;
+                    num++;
+                    // System.out.println("[" + num++ + "][" + i + "][" + j + "] : " + Arrays.toString(array));
                 }
             }
-
-
             h = (h - 1) / 3;
         }
+        System.out.println("shell num [" + num + "]");
 
+        // 当h == 1时, 就变成了直接插入排序了
 
-//        while (h > 0) {
-//            System.out.println("h = " + h);
-//            for (int i = h; i < length; i += h) {
-//                if (array[i] < array[i - h]) {
-//                    int tmp = array[i];
-//                    int j = i - h;
-//                    while (j >= 0 && array[j] > tmp) {
-//                        array[j + h] = array[j];
-//                        j -= h;
-//                    }
-//                    array[j + h] = tmp;
-//                    System.out.println("[" + num++ + "][" + h + "][" + i + "][" + j + "] : " + Arrays.toString(array));
-//                }
-//            }
-//            // 计算出下一个h值
-//            h = (h - 1) / 3;
-//        }
+        // while (1 > 0) {
+        //     System.out.println("h = " + 1);
+        //     for (int i = 1; i < length; i += 1) {
+        //         for (int j = i - 1; j > -1 && array[j] > array[j + 1]; j--) {
+        //             temp = array[j + 1];
+        //             array[j + 1] = array[j];
+        //             array[j] = temp;
+        //             System.out.println("[" + num++ + "][" + temp + "][" + i + "][" + j + "] : " + Arrays.toString(array));
+        //         }
+        //     }
+        //     h = (1 - 1) / 3;
+        // }
+
     }
 
 }

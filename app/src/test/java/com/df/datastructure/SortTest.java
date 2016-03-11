@@ -18,53 +18,63 @@ public class SortTest {
 
     @Before
     public void initArray() {
-        array = new int[]{3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48};
+        array = new int[]{
+                3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
+//                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
+//                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
+//                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
+//                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
+//                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
+//                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
+//                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
+//                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
+//                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
+//                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
+//                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
+//                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
+        };
     }
 
     @Test
-    @Ignore
     public void testDubble() throws Exception {
-        System.out.println(Arrays.toString(array));
+        //System.out.println(Arrays.toString(array));
         Sort.dubble(array);
-        System.out.println(Arrays.toString(array));
-        org.junit.Assert.assertArrayEquals(arraySorted, array);
+        //System.out.println(Arrays.toString(array));
+        //org.junit.Assert.assertArrayEquals(arraySorted, array);
 
     }
 
     @Test
-    @Ignore
     public void testDubbleAlpha() throws Exception {
-        System.out.println(Arrays.toString(array));
+        //System.out.println(Arrays.toString(array));
         Sort.dubbleAlpha(array);
-        System.out.println(Arrays.toString(array));
-        org.junit.Assert.assertArrayEquals(arraySorted, array);
+        //System.out.println(Arrays.toString(array));
+        //org.junit.Assert.assertArrayEquals(arraySorted, array);
 
     }
 
 
     @Test
-    @Ignore
     public void testSelect() throws Exception {
-        System.out.println(Arrays.toString(array));
+        //System.out.println(Arrays.toString(array));
         Sort.select(array);
-        System.out.println(Arrays.toString(array));
-        org.junit.Assert.assertArrayEquals(arraySorted, array);
+        //System.out.println(Arrays.toString(array));
+        //org.junit.Assert.assertArrayEquals(arraySorted, array);
     }
 
     @Test
-    @Ignore
     public void testInsertion() throws Exception {
-        System.out.println(Arrays.toString(array));
+        //System.out.println(Arrays.toString(array));
         Sort.insertion(array);
-        System.out.println(Arrays.toString(array));
-        org.junit.Assert.assertArrayEquals(arraySorted, array);
+        //System.out.println(Arrays.toString(array));
+        //org.junit.Assert.assertArrayEquals(arraySorted, array);
     }
 
 
     @Test
     public void testShell() throws Exception {
-        System.out.println(Arrays.toString(array));
+        //System.out.println(Arrays.toString(array));
         Sort.shell(array);
-        System.out.println(Arrays.toString(array));
+        //System.out.println(Arrays.toString(array));
     }
 }
