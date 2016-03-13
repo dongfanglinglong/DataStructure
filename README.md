@@ -1,5 +1,5 @@
 
-## https://github.com/arkulo56/thought/edit/master/software/dataStruct/README.md
+## https://github.com/arkulo56/thought/blob/master/software/dataStruct/README.md
 
 ## 数据结构总览
 

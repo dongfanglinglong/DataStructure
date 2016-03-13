@@ -20,22 +20,23 @@ public class SortTest {
     public void initArray() {
         array = new int[]{
                 3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
-//                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
-//                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
-//                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
-//                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
-//                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
-//                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
-//                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
-//                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
-//                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
-//                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
-//                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
-//                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
+                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
+                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
+                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
+                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
+                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
+                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
+                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
+                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
+                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
+                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
+                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
+                ,3, 44, 38, 5, 47, 15, 51, 36, 26, 27, 2, 46, 4, 19, 50, 48
         };
     }
 
     @Test
+    @Ignore
     public void testDubble() throws Exception {
         //System.out.println(Arrays.toString(array));
         Sort.dubble(array);
@@ -45,6 +46,7 @@ public class SortTest {
     }
 
     @Test
+    @Ignore
     public void testDubbleAlpha() throws Exception {
         //System.out.println(Arrays.toString(array));
         Sort.dubbleAlpha(array);
@@ -55,6 +57,7 @@ public class SortTest {
 
 
     @Test
+    @Ignore
     public void testSelect() throws Exception {
         //System.out.println(Arrays.toString(array));
         Sort.select(array);
@@ -63,6 +66,7 @@ public class SortTest {
     }
 
     @Test
+    @Ignore
     public void testInsertion() throws Exception {
         //System.out.println(Arrays.toString(array));
         Sort.insertion(array);
@@ -72,9 +76,17 @@ public class SortTest {
 
 
     @Test
+    @Ignore
     public void testShell() throws Exception {
         //System.out.println(Arrays.toString(array));
         Sort.shell(array);
         //System.out.println(Arrays.toString(array));
+    }
+
+    @Test
+    public void testHeap() throws Exception {
+//        System.out.println(Arrays.toString(array));
+        Sort.heap(array);
+//        System.out.println(Arrays.toString(array));
     }
 }
