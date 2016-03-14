@@ -36,7 +36,7 @@ import android.support.annotation.Size;
  * 快速排序  平均O(nlgn)        最好O(nlgn)   最坏O(n^2)   辅助空间O(lgn)~O(n)  不稳定   n较大时好,基本有序反而不好（较复杂）
  * 堆 排 序  平均O(nlgn)        最好O(nlgn)   最坏O(nlgn)  辅助空间O(1)         不稳定   n较大时好（较复杂）
  * </pre>
- * <p/>
+ * <p>
  * Created by dongfang on 2016/3/10.
  */
 public class Sort {
@@ -55,13 +55,14 @@ public class Sort {
      * 它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。
      * 走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。
      * 这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。
-     * <p/>
+     * <p>
      * 步骤：
-     * <p/>
-     * 1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。<BR/>
-     * 2.对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。<BR/>
-     * 3.针对所有的元素重复以上的步骤，除了最后一个。<BR/>
-     * 4.持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。<BR/>
+     * <pre>
+     * 1.比较相邻的元素。如果第一个比第二个大，就交换他们两个。
+     * 2.对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。
+     * 3.针对所有的元素重复以上的步骤，除了最后一个。
+     * 4.持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
+     * <pre/>
      *
      * @param array
      */
@@ -133,7 +134,6 @@ public class Sort {
             for (int j = i + 1; j < length; j++) {
                 if (array[min] > array[j]) {
                     min = j;
-
                     num++;
                     // System.out.println("[" + num++ + "][" + i + "][" + j + "] : " + Arrays.toString(array));
                 }
@@ -155,15 +155,16 @@ public class Sort {
      * 它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。<BR/>
      * 插入排序在实现上，通常采用in-place排序（即只需用到O(1)的额外空间的排序），
      * 因而在从后向前扫描过程中，需要反复把已排序元素逐步向后挪位，为最新元素提供插入空间。
-     * <p/>
+     * <p>
      * 步骤：
-     * <p/>
-     * 1. 从第一个元素开始，该元素可以认为已经被排序<BR/>
-     * 2. 取出下一个元素，在已经排序的元素序列中从后向前扫描<BR/>
-     * 3. 如果该元素（已排序）大于新元素，将该元素移到下一位置<BR/>
-     * 4. 重复步骤3，直到找到已排序的元素小于或者等于新元素的位置<BR/>
-     * 5. 将新元素插入到该位置中<BR/>
-     * 6. 重复步骤2<BR/>
+     * <pre>
+     * 1. 从第一个元素开始，该元素可以认为已经被排序
+     * 2. 取出下一个元素，在已经排序的元素序列中从后向前扫描
+     * 3. 如果该元素（已排序）大于新元素，将该元素移到下一位置
+     * 4. 重复步骤3，直到找到已排序的元素小于或者等于新元素的位置
+     * 5. 将新元素插入到该位置中
+     * 6. 重复步骤2
+     * <pre/>
      *
      * @param array
      */
@@ -189,8 +190,8 @@ public class Sort {
      * <EM>希尔排序</EM>，也称递减增量排序算法，是插入排序的一种高速而稳定的改进版本。
      * <pre>
      * 希尔排序是基于插入排序的以下两点性质而提出改进方法的：
-     * 1、插入排序在对几乎已经排好序的数据操作时， 效率高， 即可以达到线性排序的效率
-     * 2、但插入排序一般来说是低效的， 因为插入排序每次只能将数据移动一位
+     *      1、插入排序在对几乎已经排好序的数据操作时， 效率高， 即可以达到线性排序的效率
+     *      2、但插入排序一般来说是低效的， 因为插入排序每次只能将数据移动一位
      * </pre>
      * 由于shell排序的时间复杂度和步长有关，目前还没法证明哪个步长效率最好，此处用Knuth提出的方法；<BR/>
      *
@@ -239,11 +240,113 @@ public class Sort {
     }
 
     /**
-     * 归并排序
+     * <EM>归并排序（Merge）</EM>是将两个（或两个以上）有序表合并成一个新的有序表，即把待排序序列分为若干个子序列，每个子序列是有序的。然后再把有序子序列合并为整体有序序列。
+     * <p>
+     * 归并排序是建立在归并操作上的一种有效的排序算法。<br/>
+     * 该算法是采用分治法（Divide and Conquer）的一个非常典型的应用。 <br/>
+     * 将已有序的子序列合并，得到完全有序的序列；即先使每个子序列有序，再使子序列段间有序。若将两个有序表合并成一个有序表，称为2-路归并。<br/>
+     * <p>
+     * -----
+     * <pre>
+     * 归并排序算法稳定，
+     * 数组需要O(n)的额外空间，链表需要O(log(n))的额外空间，
+     * 时间复杂度为O(nlog(n))，
+     * 算法不是自适应的，不需要对数据的随机读取。
+     * </pre>
      *
      * @param array
      */
     public static void merge(@NonNull @Size(min = 1) int[] array) {
+        int length = array.length;
+        int[] reg = new int[length];
+        int num = mergePartition(array, reg, 0, length - 1);
+
+        System.out.println("mergeAlpha num [" + num + "]");
+
+    }
+
+    public static void mergeAlpha(@NonNull @Size(min = 1) int[] array) {
+        int num = 1;
+        int length = array.length;
+        int[] result = new int[length];
+
+        for (int block = 1; block < length; block *= 2) {
+            for (int i = 0; i < length; i += 2 * block) {
+                int low = i;
+                int mid = (i + block) < length ? (i + block) : length;
+                int high = (i + 2 * block) < length ? (i + 2 * block) : length;
+
+                //两个块的起始下标及结束下标
+                int stratL = low;
+                int startH = mid;
+                //开始对两个block进行归并排序
+                while (stratL < mid && startH < high) {
+                    result[low++] = array[stratL] < array[startH] ? array[stratL++] : array[startH++];
+                    num++;
+                }
+                while (stratL < mid) {
+                    result[low++] = array[stratL++];
+                    num++;
+                }
+                while (startH < high) {
+                    result[low++] = array[startH++];
+                    num++;
+                }
+            }
+            int[] temp = array;
+            array = result;
+            result = temp;
+        }
+        System.out.println("mergeAlpha num [" + num + "]");
+
+    }
+
+
+    /**
+     * <EM>归并排序（英语：Merge sort，或mergesort）</EM>，是创建在归并操作上的一种有效的排序算法，效率为O(nlogn)。
+     * <Pre>
+     * 原理如下（假设序列共有n个元素）：
+     * 1.将序列每相邻两个数字进行归并操作，形成floor(n/2)个序列，排序后每个序列包含两个元素
+     * 2.将上述序列再次归并，形成floor(n/4)个序列，每个序列包含四个元素
+     * 3.重复步骤2，直到所有元素排序完毕
+     * </Pre>
+     *
+     * @param array
+     * @param reg
+     * @param start
+     * @param end
+     */
+    private static int mergePartition(int[] array, int[] reg, int start, int end) {
+        if (start >= end)
+            return 0;
+
+        int num = 0;
+        int mid = ((end - start) >> 1) + start;
+
+        int startL = start;
+        int startH = mid + 1;
+        mergePartition(array, reg, startL, mid);
+        mergePartition(array, reg, startH, end);
+
+        int i = start;
+        while (startL <= mid && startH <= end) {
+            reg[i++] = array[startL] < array[startH] ? array[startL++] : array[startH++];
+            num++;
+        }
+        while (startL <= mid) {
+            reg[i++] = array[startL++];
+            num++;
+        }
+        while (startH <= end) {
+            reg[i++] = array[startH++];
+            num++;
+        }
+        for (i = start; i <= end; i++) {
+            array[i] = reg[i];
+            num++;
+        }
+
+        return num;
     }
 
     /**
@@ -268,36 +371,66 @@ public class Sort {
      * @param array
      */
     public static void quick(@NonNull @Size(min = 1) int[] array) {
-        quickPartion(array, 0, array.length);
+        int num = quickPartition(array, 0, array.length - 1);
+        System.out.println("quick num [" + num + "]");
+
     }
 
     /**
+     * 快速排序分治方法
+     * <pre>
+     * 1.以array[l]为轴，作为基准值进行分治
+     * 2.将比轴小的值，移到轴的左边，形成左子数列
+     * 3.将比轴大的值，移到轴的右边，形成右子数列
+     * 4.分别对左子数列和右子数列做上述三个步骤(递归)，直到左子数列或右子数列只剩一个值或没有数值
+     * </pre>
+     * 每次一次分治，都会把轴的值给排序好
+     *
      * @param array
      * @param l     起始位置
      * @param r     结束位置
      */
-    private static void quickPartion(int array[], int l, int r) {
-        if (l < r) {
-            int i = l, j = r, x = array[l];
-            while (i < j) {
-                while (i < j && array[j] >= x) // 从右向左找第一个小于x的数
-                    j--;
-                if (i < j)
-                    array[i++] = array[j];
+    private static int quickPartition(int array[], int l, int r) {
+        int num = 0;
 
-                while (i < j && array[i] < x) // 从左向右找第一个大于等于x的数
+        if (l < r) {
+            int i = l, j = r, temp = array[l];
+            while (i < j) {
+                while (i < j && array[j] >= temp) // 从右向左找第一个小于x的数
+                    j--;
+                if (i < j) {
+                    array[i] = array[j];
+                    // System.out.println("[" + ++num + "][" + temp + "][" + i + "][" + j + "] : " + Arrays.toString(array));
+                    num++;
                     i++;
-                if (i < j)
-                    array[j--] = array[i];
+                }
+                while (i < j && array[i] < temp) // 从左向右找第一个大于等于x的数
+                    i++;
+                if (i < j) {
+                    array[j] = array[i];
+                    // System.out.println("[" + ++num + "][" + temp + "][" + i + "][" + j + "] : " + Arrays.toString(array));
+                    num++;
+                    j--;
+                }
             }
-            array[i] = x;
-            quickPartion(array, l, i - 1); // 递归调用
-            quickPartion(array, i + 1, r);
+            array[i] = temp;
+            // System.out.println("[" + ++num + "][" + temp + "][" + i + "][0] : " + Arrays.toString(array));
+            num++;
+            num += quickPartition(array, l, i - 1); // 递归调用
+            num += quickPartition(array, i + 1, r);
         }
+
+        return num;
     }
 
     /**
-     * 堆排序
+     * <EM>堆排序（Heapsort）</EM>是指利用堆这种数据结构所设计的一种排序算法。<br/>
+     * 堆积是一个近似完全二叉树的结构，并同时满足堆积的性质：<I>即子结点的键值或索引总是小于（或者大于）它的父节点。<I/>
+     * <pre>
+     *  不稳定的排序方法
+     *  辅助空间为O(1)， 最坏时间复杂度为O(nlog2n)
+     *  堆排序的堆序的平均性能较接近于最坏性能。
+     * </pre>
      *
      * @param array
      */
@@ -305,7 +438,7 @@ public class Sort {
         int num = 0; // 数据交换次数
 
         int length = array.length;
-        for (int i = (length - 1) / 2; i > -1; i--) { // 从最后一个父节点开始建堆
+        for (int i = (length - 1) >> 1; i > -1; i--) { // 从最后一个父节点开始建堆
             num += heapify(array, i, length);
         }
 
@@ -332,7 +465,7 @@ public class Sort {
      * 2. 堆的定义：n个关键字序列array[0，...，n-1]，当且仅当满足下列要求：(0 <= i <= (n-1)/2)
      *            ① array[i] <= array[2*i + 1] 且 array[i] <= array[2*i + 2]； 称为小根堆；
      *            ② array[i] >= array[2*i + 1] 且 array[i] >= array[2*i + 2]； 称为大根堆；
-     * <pre/>
+     * </pre>
      *
      * @param array  待建堆数组
      * @param i      父节点下标
