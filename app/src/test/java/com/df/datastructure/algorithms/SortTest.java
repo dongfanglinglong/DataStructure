@@ -1,4 +1,6 @@
-package com.df.datastructure;
+package com.df.datastructure.algorithms;
+
+import com.df.datastructure.algorithms.Sort;
 
 import org.junit.Before;
 import org.junit.Ignore;

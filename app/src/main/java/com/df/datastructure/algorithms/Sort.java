@@ -1,4 +1,4 @@
-package com.df.datastructure;
+package com.df.datastructure.algorithms;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Size;
