@@ -96,7 +96,7 @@ public class StackTest {
             case 823:
                 System.out.println("i[" + (i + 1) + "]:capacity length = " + stack.getCapacityLength());
                 break;
-            case 824:
+            case 1000:
                 System.out.println("i[" + (i + 1) + "]:capacity length = " + stack.getCapacityLength());
                 break;
             }

@@ -28,7 +28,9 @@ public class Stack {
      */
     protected int[] elementData;
 
-
+    /**
+     * Default initial capacity.
+     */
     private static final int DEFAULT_SIZE = 10;
 
     public Stack() {
@@ -124,11 +126,6 @@ public class Stack {
      * OutOfMemoryError: Requested array size exceeds VM limit
      */
     private static final int MAX_ARRAY_SIZE = 1024;
-    /**
-     * It will be add {@code CAPACITY_GROW_SPEED } times stack length elements to the stack when it is detected that
-     * it needs to grow to accommodate extra entries.
-     */
-    private static final float CAPACITY_GROW_SPEED = 1.5f;
 
     /**
      * Increases the capacity of this stack, if necessary, to ensure
@@ -174,7 +171,8 @@ public class Stack {
      */
     private void grow(int minCapacity) {
         // overflow-conscious code
-        int newCapacity = (int) (elementData.length * CAPACITY_GROW_SPEED);
+        int oldCapacity = elementData.length;
+        int newCapacity = oldCapacity + (oldCapacity >> 1);
         if (newCapacity - minCapacity < 0)
             newCapacity = minCapacity;
         if (newCapacity - MAX_ARRAY_SIZE > 0)
