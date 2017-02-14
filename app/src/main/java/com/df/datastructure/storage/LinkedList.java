@@ -1,10 +1,10 @@
 package com.df.datastructure.storage;
 
-import java.util.*;
+import java.util.NoSuchElementException;
 
 /**
  * A doubly-linked list.
- * <p>
+ * <p/>
  * Created by dongfang on 16/3/18.
  */
 public class LinkedList {
@@ -122,7 +122,8 @@ public class LinkedList {
             for (int i = size; i > location; i--) {
                 link = link.previous;
             }
-        } else {
+        }
+        else {
             for (int i = 0; i <= location; i++) {
                 link = link.next;
             }
@@ -159,7 +160,8 @@ public class LinkedList {
             for (int i = size; i > location; i--) {
                 link = link.previous;
             }
-        } else {
+        }
+        else {
             for (int i = 0; i <= location; i++) {
                 link = link.next;
             }
@@ -275,7 +277,8 @@ public class LinkedList {
             for (int i = size; i > location; i--) {
                 link = link.previous;
             }
-        } else {
+        }
+        else {
             for (int i = 0; i <= location; i++) {
                 link = link.next;
             }
@@ -300,7 +303,8 @@ public class LinkedList {
             for (int i = size; i > location; i--) {
                 link = link.previous;
             }
-        } else {
+        }
+        else {
             for (int i = 0; i <= location; i++) {
                 link = link.next;
             }
@@ -326,7 +330,8 @@ public class LinkedList {
                 for (int i = 0; i <= location; i++) {
                     link = link.next;
                 }
-            } else {
+            }
+            else {
                 for (int i = size; i > location; i--) {
                     link = link.previous;
                 }
@@ -336,6 +341,23 @@ public class LinkedList {
             return result;
         }
         throw new IndexOutOfBoundsException();
+    }
+
+    /**
+     * Returns a new array containing all elements contained in this
+     * {@code LinkedList}.
+     *
+     * @return an array of the elements from this {@code LinkedList}.
+     */
+    public int[] toArray() {
+        int index = 0;
+        int[] contents = new int[size];
+        Link link = voidLink.next;
+        while (link != voidLink) {
+            contents[index++] = link.data;
+            link = link.next;
+        }
+        return contents;
     }
 
 }
